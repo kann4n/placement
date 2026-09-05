@@ -71,7 +71,6 @@ export default function HomePage() {
         />
         <div className="hero-content">
           <span className="hero-badge">
-            <Sparkles size={12} />
             Placement Brochure 2025–26
           </span>
           <h1 className="hero-title">
