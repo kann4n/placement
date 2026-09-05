@@ -158,7 +158,7 @@
   .lead      { @apply text-base md:text-lg text-muted-foreground leading-relaxed; }
 
   /* Navbar */
-  .navbar         { @apply fixed inset-x-0 top-0 z-50 border-b bg-background/10 backdrop-blur-lg; }
+  .navbar         { @apply fixed inset-x-0 top-0 z-50 border-b bg-background/90 backdrop-blur-lg; }
   .navbar-inner   { @apply max-w-6xl mx-auto px-5 sm:px-8 flex h-16 items-center justify-between; }
   .nav-brand      { @apply flex items-center gap-3; }
   .nav-brand-name { @apply text-sm font-semibold leading-tight; }

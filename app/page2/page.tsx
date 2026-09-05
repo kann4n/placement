@@ -12,7 +12,6 @@ import {
   FlaskConical,
   ChevronRight,
   Check,
-  Sparkles,
   Award,
   Code2,
   Database,
@@ -23,7 +22,6 @@ import {
   Star,
   Calendar,
   MapPin,
-  Menu,
 
 } from "lucide-react";
 
@@ -32,9 +30,7 @@ import cusatLogo from "../cusat-logo.png";
 import cusatImg from "../cusat.png";
 import cusatAdmImg from "../cusat-adm.jpg";
 import achievementsImg from "../achievements-1.jpg";
-import gp1Img from "../GP-1.png";
-import gp2Img from "../GP-2.jpg";
-import gp3Img from "../GP-3.jpg";
+import placeholderImg from "../placeholder.png";
 import bitsImg from "../BITS-Pilani.png";
 import nitImg from "../NIT-Calicut.png";
 import queensImg from "../queens.jpg";
@@ -115,7 +111,7 @@ const newsEvents = [
     date: "June 2025",
     title: "16th Anti-UAV Challenge — CVPR 2025",
     desc: "Our students competed on the global stage at CVPR 2025, one of the world's premier computer vision conferences, showcasing cutting-edge drone detection research.",
-    img: gp1Img,
+    img: placeholderImg,
     tag: "Achievement",
     tagColor: "#10b981",
   },
@@ -124,7 +120,7 @@ const newsEvents = [
     date: "2025",
     title: "Annual Student Exchange — NTNU, Norway",
     desc: "Selected students participated in the research exchange program with NTNU Gjøvik, Norway, gaining international academic exposure and collaborative research experience.",
-    img: gp2Img,
+    img: placeholderImg,
     tag: "Global",
     tagColor: "#3b82f6",
   },
@@ -133,7 +129,7 @@ const newsEvents = [
     date: "2025",
     title: "Charpak Scholarship — French Embassy",
     desc: "A student from our department was awarded the prestigious Charpak Scholarship by the French Embassy, enabling advanced studies at a leading French institution.",
-    img: gp3Img,
+    img: placeholderImg,
     tag: "Scholarship",
     tagColor: "#f59e0b",
   },
@@ -142,7 +138,7 @@ const newsEvents = [
     date: "2024",
     title: "IEDC Hackify'24 — Champions",
     desc: "Our team emerged as winners at IEDC Hackify'24, demonstrating exceptional problem-solving, innovation, and technical execution under competition pressure.",
-    img: null,
+    img: placeholderImg,
     tag: "Competition",
     tagColor: "#ef4444",
   },
@@ -151,7 +147,7 @@ const newsEvents = [
     date: "2023",
     title: "Research Visit — Queen's University, Belfast",
     desc: "Students and faculty visited Queen's University of Belfast as part of our international academic exchange programme, fostering collaborative research ties.",
-    img: queensImg,
+    img: placeholderImg,
     tag: "International",
     tagColor: "#6366f1",
   },
@@ -160,7 +156,7 @@ const newsEvents = [
     date: "2023",
     title: "BMVC UK — Research Publication",
     desc: "Our students published groundbreaking research at BMVC 2023 (British Machine Vision Conference), cementing our reputation in the global computer vision community.",
-    img: null,
+    img: placeholderImg,
     tag: "Research",
     tagColor: "#8b5cf6",
   },
@@ -215,21 +211,21 @@ const globalPartners = [
     country: "🇳🇴  Norway",
     years: "2022 · 2023 · 2025",
     desc: "Norwegian University of Science and Technology — research exchange, joint supervision, and collaborative AI projects across multiple cohorts.",
-    img: gp1Img,
+    img: placeholderImg,
   },
   {
     name: "Queen's University of Belfast",
     country: "🇬🇧  United Kingdom",
     years: "2023",
     desc: "Faculty and student exchange with one of the UK's leading research-intensive universities, fostering cross-cultural academic collaboration.",
-    img: queensImg,
+    img: placeholderImg,
   },
   {
     name: "ENSSAT, University of Rennes",
     country: "🇫🇷  France",
     years: "Recent",
     desc: "French engineering school collaboration enabling student participation in European research networks and Charpak Scholarship opportunities.",
-    img: gp3Img,
+    img: placeholderImg,
   },
 ] as const;
 
@@ -304,41 +300,10 @@ const contacts = [
 export default function DepartmentPage() {
   return (
     <>
-      {/* ── Top Info Bar ──────────────────────────────────────────────── */}
-      <div className="bg-gray-950 text-white/75 text-xs">
-        <div className="wrap flex flex-col sm:flex-row items-center justify-between gap-2 py-2">
-          <div className="flex flex-wrap items-center gap-4">
-            <a
-              href="mailto:csdir@cusat.ac.in"
-              className="flex items-center gap-1.5 hover:text-white transition-colors"
-            >
-              <Mail size={12} />
-              csdir@cusat.ac.in
-            </a>
-            <a
-              href="tel:04842862301"
-              className="flex items-center gap-1.5 hover:text-white transition-colors"
-            >
-              <Phone size={12} />
-              +91-484-2862301
-            </a>
-          </div>
-          <a
-            href="https://erp.cusat.ac.in"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ background: "#00b4d8" }}
-            className="rounded px-4 py-1.5 text-xs font-semibold text-white hover:opacity-90 transition-opacity"
-          >
-            Student Portal
-          </a>
-        </div>
-      </div>
-
       {/* ── Sticky Site Header ────────────────────────────────────────── */}
       <header className="sticky top-0 z-50 shadow-md">
         {/* White logo bar */}
-        <div className="bg-white border-b">
+        <div className="bg-background border-b">
           <div className="wrap flex items-center justify-between h-20">
             {/* DCS Branding */}
             <a href="#" className="flex items-center gap-4">
@@ -351,44 +316,18 @@ export default function DepartmentPage() {
                   className="rounded"
                 />
               </div>
-              <div className="hidden sm:block leading-tight">
-                <p className="text-[11px] font-bold font-mono text-primary tracking-wider">
-                  &lt;DCS/&gt;
-                </p>
+              <div className="hidden md:flex md:flex-col gap-0.5 leading-tight">
                 <p className="text-sm font-bold text-primary tracking-widest uppercase">
                   Department of
                 </p>
                 <p className="text-xl font-black text-primary tracking-widest uppercase leading-tight">
                   Computer Science
                 </p>
-                <p className="text-[9px] text-muted-foreground tracking-[0.25em] uppercase">
-                  DST-FIST Assisted
-                </p>
               </div>
             </a>
 
-            {/* Desktop inline nav */}
-            <nav className="hidden xl:flex items-center gap-1" aria-label="Primary">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-colors"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-
             {/* CUSAT Logos (right) */}
             <div className="flex items-center gap-4">
-              <Image
-                src={cusatLogo}
-                alt="CUSAT Emblem"
-                width={58}
-                height={58}
-                className="rounded-full"
-              />
               <div className="hidden sm:flex flex-col items-center border-l pl-4">
                 <span className="text-4xl font-black text-primary leading-none">50</span>
                 <span className="text-[9px] font-bold text-muted-foreground tracking-[0.2em] uppercase">
@@ -410,7 +349,6 @@ export default function DepartmentPage() {
         >
           <div className="wrap flex items-center h-11 gap-6">
             <span className="flex items-center gap-2 text-white/90 font-semibold text-sm shrink-0">
-              <Menu size={15} />
               MENU
             </span>
             {navItems.map((item) => (
@@ -447,11 +385,6 @@ export default function DepartmentPage() {
         />
 
         <div className="relative z-10 wrap py-28 w-full">
-          <span className="inline-flex items-center gap-2 mb-6 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm">
-            <Sparkles size={12} />
-            Department of Computer Science · CUSAT
-          </span>
-
           <h1 className="font-heading font-bold leading-none">
             <span
               className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl"
@@ -490,12 +423,6 @@ export default function DepartmentPage() {
             >
               Get in Touch
             </a>
-          </div>
-
-          {/* Scroll hint */}
-          <div className="mt-16 flex flex-col items-start gap-1 text-white/30">
-            <span className="text-[10px] tracking-[0.3em] uppercase">Scroll to explore</span>
-            <div className="h-8 w-px bg-white/25" />
           </div>
         </div>
       </section>
@@ -575,7 +502,7 @@ export default function DepartmentPage() {
             {/* Image stack */}
             <div className="relative">
               {/* Main image */}
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
+              <div className="relative aspect-4/3 overflow-hidden rounded-2xl shadow-2xl">
                 <Image
                   src={cusatAdmImg}
                   alt="CUSAT Administrative Building"
@@ -927,7 +854,7 @@ export default function DepartmentPage() {
           {/* GP-2 full-width banner */}
           <div className="mt-10 relative overflow-hidden rounded-2xl h-56 md:h-64">
             <Image
-              src={gp2Img}
+              src={placeholderImg}
               alt="Global exchange program students"
               fill
               sizes="100vw"
@@ -1043,7 +970,7 @@ export default function DepartmentPage() {
 
             <div className="relative overflow-hidden rounded-2xl aspect-video group">
               <Image
-                src={gp3Img}
+                src={placeholderImg}
                 alt="ENSSAT, University of Rennes"
                 fill
                 sizes="33vw"
