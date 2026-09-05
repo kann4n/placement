@@ -1,4 +1,4 @@
-import { Brain, Globe, Trophy, Rocket, BookOpen, Laptop, GraduationCap, FlaskConical } from "lucide-react";
+import { Brain, Globe, Trophy, Rocket, BookOpen, Laptop, GraduationCap, FlaskConical, Award, Star, } from "lucide-react";
 // change to good icons
 
 const navLinks = [
@@ -134,24 +134,28 @@ const contacts = [
     name: "Dr. Ajees A P",
     phone: "+91 9061859697",
     email: "ajeesap@cusat.ac.in",
+    Icon: Award,
   },
   {
     role: "Head of Department",
     name: "Dr. Madhu S. Nair",
     phone: "0484 2862302",
     email: "msn@cusat.ac.in",
+    Icon: Star,
   },
   {
     role: "Student Coordinator",
     name: "Noble Austine",
     phone: "+91 9645922173",
     email: "nobleaustine@ug.cusat.ac.in",
+    Icon: GraduationCap,
   },
   {
     role: "Student Coordinator",
     name: "Omal S",
     phone: "+91 9633276748",
     email: "omammu311@gmail.com",
+    Icon: GraduationCap,
   },
 ] as const;
 

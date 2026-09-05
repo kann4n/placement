@@ -2,17 +2,17 @@ import Image from "next/image";
 import {
   Globe,
   Rocket,
-  Sparkles,
   ChevronRight,
   Phone,
   Mail,
   ExternalLink,
   Check,
+  MapPin,
 } from "lucide-react";
 import depImg from "./dep.jpg";
 import cusatLogo from "./cusat-logo.png";
 import { navLinks, stats, features, startups, globalPartners, industryPartners, hackathons, achievements, contacts } from "@/data/data";
-
+import cusatAdmImg from "./cusat-adm.jpg";
 
 // ── Page ─────────────────────────────────────────────────────────────────────
 
@@ -267,17 +267,26 @@ export default function HomePage() {
       <section id="contact" className="section">
         <div className="wrap">
           <p className="eyebrow">Get in Touch</p>
-          <h2 className="h-section mt-2">Contact Our Placement Team</h2>
+          <h2 className="h-section mt-2">Contact Our Team</h2>
           <p className="lead mt-4 max-w-2xl">
-            Reach out for internship programmes, project collaborations, or
-            full-time hiring opportunities.
+            For placement opportunities, research collaborations, or general
+            enquiries — our team is here to help.
           </p>
-          <div className="contact-grid mt-10">
+
+          <div className="mt-10 contact-grid">
             {contacts.map((c) => (
               <div key={c.email} className="contact-card">
-                <p className="contact-role">{c.role}</p>
+                <div className="flex items-center gap-3 mb-1">
+                  <div className="size-9 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                    <c.Icon size={16} />
+                  </div>
+                  <p className="contact-role">{c.role}</p>
+                </div>
                 <p className="contact-name">{c.name}</p>
-                <a href={"tel:" + c.phone.replace(/\s/g, "")} className="contact-row">
+                <a
+                  href={"tel:" + c.phone.replace(/\s/g, "")}
+                  className="contact-row"
+                >
                   <Phone size={14} />
                   {c.phone}
                 </a>
@@ -289,36 +298,89 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Department Info */}
-          <div className="mt-10 rounded-xl border bg-muted/40 p-6 flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
-            <div>
-              <p className="font-semibold">Department of Computer Science</p>
-              <p className="text-sm text-muted-foreground mt-1">
-                Cochin University of Science and Technology, Kochi — 682 022
-              </p>
-            </div>
-            <div className="flex flex-col gap-2.5">
-              <a href="tel:04842862301" className="contact-row">
-                <Phone size={14} />
-                0484 2862301
-              </a>
-              <a href="mailto:csdir@cusat.ac.in" className="contact-row">
-                <Mail size={14} />
-                csdir@cusat.ac.in
-              </a>
-              <a
-                href="https://cs.cusat.ac.in"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-row"
-              >
-                <ExternalLink size={14} />
-                cs.cusat.ac.in
-              </a>
+          {/* Department info block with split image */}
+          <div className="mt-10 rounded-2xl overflow-hidden border shadow-sm">
+            <div className="grid md:grid-cols-2">
+              {/* Left: photo */}
+              <div className="relative h-64 md:h-auto min-h-55">
+                <Image
+                  src={cusatAdmImg}
+                  alt="CUSAT Main Campus"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background: "oklch(0.12 0.09 258 / 0.52)",
+                  }}
+                />
+                <div className="absolute inset-0 flex items-end p-6">
+                  <div>
+                    <p className="text-white font-bold text-xl font-heading leading-tight">
+                      Cochin University of Science
+                      <br />
+                      and Technology
+                    </p>
+                    <p className="text-white/65 text-sm mt-1.5 flex items-center gap-1.5">
+                      <MapPin size={12} />
+                      South Kalamassery, Kochi — 682 022
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right: contact details */}
+              <div className="p-8 bg-card flex flex-col justify-center">
+                <div className="flex items-center gap-4 mb-6">
+                  <Image
+                    src={cusatLogo}
+                    alt="CUSAT"
+                    width={48}
+                    height={48}
+                    className="rounded-full"
+                  />
+                  <div>
+                    <p className="font-bold leading-tight">
+                      Department of Computer Science
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      CUSAT · DST-FIST Assisted
+                    </p>
+                  </div>
+                </div>
+
+                <div className="space-y-3.5">
+                  <a href="tel:04842862301" className="contact-row">
+                    <Phone size={14} />
+                    0484 2862301
+                  </a>
+                  <a href="mailto:csdir@cusat.ac.in" className="contact-row">
+                    <Mail size={14} />
+                    csdir@cusat.ac.in
+                  </a>
+                  <a
+                    href="https://cs.cusat.ac.in"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-row"
+                  >
+                    <ExternalLink size={14} />
+                    cs.cusat.ac.in
+                  </a>
+                  <div className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <MapPin size={14} className="mt-0.5 shrink-0" />
+                    <span>South Kalamassery, Kochi — 682 022, Kerala, India</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* ── Footer ──────────────────────────────────────────────────── */}
       <footer className="footer">
