@@ -1,69 +1,368 @@
 import Image from "next/image";
+import {
+  Brain,
+  Globe,
+  Trophy,
+  Rocket,
+  BookOpen,
+  Laptop,
+  GraduationCap,
+  FlaskConical,
+  Sparkles,
+  ChevronRight,
+  Phone,
+  Mail,
+  ExternalLink,
+  Check,
+} from "lucide-react";
+import depImg from "./dep.jpg";
+import cusatLogo from "./cusat-logo.png";
+import { navLinks, stats, features, startups, globalPartners, industryPartners, hackathons, achievements, contacts } from "@/data/data";
 
-export default function Home() {
+
+// ── Page ─────────────────────────────────────────────────────────────────────
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <>
+      {/* ── Navbar ──────────────────────────────────────────────────── */}
+      <header className="navbar">
+        <div className="navbar-inner">
+          <a href="#" className="nav-brand">
+            <Image
+              src={cusatLogo}
+              alt="CUSAT emblem"
+              width={36}
+              height={36}
+              className="rounded-full"
+            />
+            <div>
+              <p className="nav-brand-name">Dept. of Computer Science</p>
+              <p className="nav-brand-sub">CUSAT · Placement 2025–26</p>
+            </div>
+          </a>
+
+          <nav className="nav-links" aria-label="Primary">
+            {navLinks.map((link) => (
+              <a key={link.href} href={link.href} className="nav-link">
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          <a href="#contact" className="nav-cta">
+            Contact Us
+          </a>
+        </div>
+      </header>
+
+      {/* ── Hero ────────────────────────────────────────────────────── */}
+      <section className="hero">
         <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src={depImg}
+          alt="Department of Computer Science building, CUSAT"
+          fill
           priority
+          sizes="100vw"
+          className="object-cover object-center"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+        {/* Dark gradient overlay */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(160deg, oklch(0.15 0.09 258 / 0.95) 0%, oklch(0.18 0.07 258 / 0.85) 50%, oklch(0.12 0.05 258 / 0.65) 100%)",
+          }}
+        />
+        <div className="hero-content">
+          <span className="hero-badge">
+            <Sparkles size={12} />
+            Placement Brochure 2025–26
+          </span>
+          <h1 className="hero-title">
+            MSc Computer Science
+            <br />
+            AI &amp; Data Science
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="hero-sub">Department of Computer Science, CUSAT</p>
+          <p className="hero-meta">
+            Five-Year Integrated Programme · Cochin University of Science and
+            Technology, Kochi
+          </p>
+          <div className="hero-actions">
+            <a href="#why-hire" className="btn-hero-primary">
+              Why Hire Us <ChevronRight size={16} />
+            </a>
+            <a href="#contact" className="btn-hero-ghost">
+              Get in Touch
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Stats Band ──────────────────────────────────────────────── */}
+      <div className="stats-band">
+        <div className="stats-inner">
+          {stats.map((s) => (
+            <div key={s.label} className="stat-item">
+              <div className="stat-value">{s.value}</div>
+              <div className="stat-label">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Why Hire ────────────────────────────────────────────────── */}
+      <section id="why-hire" className="section">
+        <div className="wrap">
+          <p className="eyebrow">Why Hire From Us</p>
+          <h2 className="h-section mt-2">Graduates Built for Industry</h2>
+          <p className="lead mt-4 max-w-2xl">
+            Our graduates bring a rare blend of deep AI expertise, research
+            acumen, and real-world project experience — ready to contribute from
+            day one.
+          </p>
+          <div className="feature-grid mt-12">
+            {features.map((f) => (
+              <div key={f.name} className="feature-card">
+                <div className="feature-icon">
+                  <f.Icon size={20} />
+                </div>
+                <p className="feature-name">{f.name}</p>
+                <p className="feature-desc">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Student Startups ────────────────────────────────────────── */}
+      <section id="startups" className="section-muted">
+        <div className="wrap">
+          <p className="eyebrow">Student Ventures</p>
+          <h2 className="h-section mt-2">Startups Founded by Our Students</h2>
+          <p className="lead mt-4 max-w-2xl">
+            Our students don&apos;t just learn — they build. These ventures were
+            founded by graduates from our program.
+          </p>
+          <div className="startup-grid mt-10">
+            {startups.map((s) => (
+              <div key={s.name} className="startup-card">
+                <Rocket className="text-primary mb-3" size={26} />
+                <h3 className="startup-name">{s.name}</h3>
+                <p className="startup-tag">{s.tag}</p>
+                <p className="startup-body">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Global Partnerships ─────────────────────────────────────── */}
+      <section className="section">
+        <div className="wrap">
+          <p className="eyebrow">Global Reach</p>
+          <h2 className="h-section mt-2">International Collaborations</h2>
+          <p className="lead mt-4 max-w-2xl">
+            Students benefit from active exchange programs and research
+            collaborations with leading universities worldwide.
+          </p>
+          <div className="global-grid mt-10">
+            {globalPartners.map((p) => (
+              <div key={p.name} className="global-card">
+                <div className="global-icon">
+                  <Globe size={22} />
+                </div>
+                <h3 className="font-semibold">{p.name}</h3>
+                <p className="text-sm text-muted-foreground mt-1">
+                  {p.country}
+                </p>
+                <p className="text-xs font-medium text-primary mt-3">
+                  {p.years}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Industry Partners ───────────────────────────────────────── */}
+      <section id="partners" className="section-muted">
+        <div className="wrap">
+          <p className="eyebrow">Academic–Industrial Partnerships</p>
+          <h2 className="h-section mt-2">Our Partner Ecosystem</h2>
+          <p className="lead mt-4 max-w-2xl">
+            Collaborations spanning premier IITs, IISERs, NITs, and technology
+            companies across India.
+          </p>
+          <div className="partner-grid mt-10">
+            {industryPartners.map((p) => (
+              <div key={p} className="partner-chip">
+                <span className="partner-dot" />
+                {p}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Hackathons ──────────────────────────────────────────────── */}
+      <section className="section">
+        <div className="wrap">
+          <p className="eyebrow">Competition Record</p>
+          <h2 className="h-section mt-2">Hackathon Achievements</h2>
+          <p className="lead mt-4 max-w-2xl">
+            A consistent track record of excellence in national and
+            international hackathons and coding challenges.
+          </p>
+          <div className="hack-grid mt-10">
+            {hackathons.map((h) => (
+              <div key={h.name} className="hack-item">
+                <span className="hack-badge">{h.badge}</span>
+                <span className="hack-name">{h.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Achievements ────────────────────────────────────────────── */}
+      <section id="achievements" className="section-muted">
+        <div className="wrap">
+          <p className="eyebrow text-center">Notable Achievements</p>
+          <h2 className="h-section mt-2 text-center">Beyond the Classroom</h2>
+          <p className="lead mt-4 text-center max-w-2xl mx-auto">
+            Scholarships, global conference publications, and recognition at
+            prestigious international challenges.
+          </p>
+          <div className="achieve-list mt-10">
+            {achievements.map((a) => (
+              <div key={a} className="achieve-item">
+                <div className="achieve-icon">
+                  <Check size={11} strokeWidth={3} />
+                </div>
+                <span className="text-sm">{a}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Vision ──────────────────────────────────────────────────── */}
+      <section className="vision-section">
+        <div className="vision-body">
+          <p
+            className="eyebrow"
+            style={{ color: "oklch(0.97 0.005 259 / 0.55)" }}
+          >
+            Our Vision
+          </p>
+          <h2 className="h-section mt-3">
+            To globally excel in innovative research, teaching, and technology
+            development inspired by social obligation.
+          </h2>
+          <blockquote className="vision-quote">
+            &ldquo;The best way to predict the future is to invent it.&rdquo;
+          </blockquote>
+          <p className="vision-attr">— Alan Kay</p>
+          <p className="vision-sub">
+            Department of Computer Science · Cochin University of Science and
+            Technology
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* ── Contact ─────────────────────────────────────────────────── */}
+      <section id="contact" className="section">
+        <div className="wrap">
+          <p className="eyebrow">Get in Touch</p>
+          <h2 className="h-section mt-2">Contact Our Placement Team</h2>
+          <p className="lead mt-4 max-w-2xl">
+            Reach out for internship programmes, project collaborations, or
+            full-time hiring opportunities.
+          </p>
+          <div className="contact-grid mt-10">
+            {contacts.map((c) => (
+              <div key={c.email} className="contact-card">
+                <p className="contact-role">{c.role}</p>
+                <p className="contact-name">{c.name}</p>
+                <a href={"tel:" + c.phone.replace(/\s/g, "")} className="contact-row">
+                  <Phone size={14} />
+                  {c.phone}
+                </a>
+                <a href={"mailto:" + c.email} className="contact-row">
+                  <Mail size={14} />
+                  {c.email}
+                </a>
+              </div>
+            ))}
+          </div>
+
+          {/* Department Info */}
+          <div className="mt-10 rounded-xl border bg-muted/40 p-6 flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
+            <div>
+              <p className="font-semibold">Department of Computer Science</p>
+              <p className="text-sm text-muted-foreground mt-1">
+                Cochin University of Science and Technology, Kochi — 682 022
+              </p>
+            </div>
+            <div className="flex flex-col gap-2.5">
+              <a href="tel:04842862301" className="contact-row">
+                <Phone size={14} />
+                0484 2862301
+              </a>
+              <a href="mailto:csdir@cusat.ac.in" className="contact-row">
+                <Mail size={14} />
+                csdir@cusat.ac.in
+              </a>
+              <a
+                href="https://cs.cusat.ac.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-row"
+              >
+                <ExternalLink size={14} />
+                cs.cusat.ac.in
+              </a>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* ── Footer ──────────────────────────────────────────────────── */}
+      <footer className="footer">
+        <div className="footer-inner">
+          <div className="flex items-center gap-3">
+            <Image
+              src={cusatLogo}
+              alt="CUSAT"
+              width={28}
+              height={28}
+              className="rounded-full opacity-75"
+            />
+            <p className="footer-copy">
+              © 2025 Department of Computer Science, CUSAT. Placement Brochure
+              2025–26.
+            </p>
+          </div>
+          <div className="flex items-center gap-5">
+            <a href="mailto:csdir@cusat.ac.in" className="footer-link">
+              <Mail size={14} />
+              csdir@cusat.ac.in
+            </a>
+            <a
+              href="https://cs.cusat.ac.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-link"
+            >
+              <ExternalLink size={14} />
+              cs.cusat.ac.in
+            </a>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 }
