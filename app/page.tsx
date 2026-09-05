@@ -1,13 +1,7 @@
 import Image from "next/image";
 import {
-  Brain,
   Globe,
-  Trophy,
   Rocket,
-  BookOpen,
-  Laptop,
-  GraduationCap,
-  FlaskConical,
   Sparkles,
   ChevronRight,
   Phone,

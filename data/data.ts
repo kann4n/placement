@@ -1,3 +1,6 @@
+import { Brain, Globe, Trophy, Rocket, BookOpen, Laptop, GraduationCap, FlaskConical } from "lucide-react";
+// change to good icons
+
 const navLinks = [
   { href: "#why-hire", label: "Why Hire" },
   { href: "#startups", label: "Startups" },
