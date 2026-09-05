@@ -70,9 +70,6 @@ export default function HomePage() {
           }}
         />
         <div className="hero-content">
-          <span className="hero-badge">
-            Placement Brochure 2025–26
-          </span>
           <h1 className="hero-title">
             MSc Computer Science
             <br />
