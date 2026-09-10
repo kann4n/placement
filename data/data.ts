@@ -6,7 +6,6 @@ const navLinks = [
   { href: "#startups", label: "Startups" },
   { href: "#partners", label: "Partners" },
   { href: "#achievements", label: "Achievements" },
-  { href: "#contact", label: "Contact" },
 ] as const;
 
 const stats = [
@@ -128,7 +127,7 @@ const achievements = [
   "IEEE AIIoT Seattle 2025",
 ] as const;
 
-const contacts = [
+const contacts_tmp = [
   {
     role: "Placement Officer",
     name: "Dr. Ajees A P",
@@ -157,6 +156,33 @@ const contacts = [
     email: "omammu311@gmail.com",
     Icon: GraduationCap,
   },
+] as const;
+
+const contacts = [
+  {
+    id: 0,
+    role: "Faculty Coordinator",
+    name: "Dr. Shailesh Sivan",
+    phone: "+91 89072 30664",
+    email: "null",
+    Icon: Award,
+  },
+  {
+    id: 1,
+    role: "Student Representative",
+    name: "Swani Madhoop",
+    phone: "+91 92079 52119",
+    email: "null",
+    Icon: GraduationCap,
+  },
+  {
+    id: 2,
+    role: "Student Representative",
+    name: "Ganesh Kumar",
+    phone: "+91 85905 93476",
+    email: "null",
+    Icon: GraduationCap,
+  }
 ] as const;
 
 export { navLinks, stats, features, startups, globalPartners, industryPartners, hackathons, achievements, contacts };

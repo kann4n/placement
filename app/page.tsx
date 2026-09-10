@@ -275,11 +275,12 @@ export default function HomePage() {
 
           <div className="mt-10 contact-grid">
             {contacts.map((c) => (
-              <div key={c.email} className="contact-card">
+              <div key={c.id} className="contact-card">
                 <div className="flex items-center gap-3 mb-1">
-                  <div className="size-9 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                  {/* TODO: delete this */}
+                  {/*<div className="size-9 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                     <c.Icon size={16} />
-                  </div>
+                  </div>*/}
                   <p className="contact-role">{c.role}</p>
                 </div>
                 <p className="contact-name">{c.name}</p>
@@ -290,10 +291,10 @@ export default function HomePage() {
                   <Phone size={14} />
                   {c.phone}
                 </a>
-                <a href={"mailto:" + c.email} className="contact-row">
+                {/*<a href={"mailto:" + c.email} className="contact-row">
                   <Mail size={14} />
                   {c.email}
-                </a>
+                </a>*/}
               </div>
             ))}
           </div>
